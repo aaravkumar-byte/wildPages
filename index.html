@@ -137,17 +137,25 @@
   .masthead-decor{
     position:absolute; inset:0; pointer-events:none;
   }
-  .masthead-decor span{
+  .masthead-decor img{
     position:absolute;
-    font-size:2.4rem;
-    opacity:0.28;
+    width:80px; height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid rgba(255,255,255,0.5);
+    opacity:0.75;
     animation:bob 6s ease-in-out infinite;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
   }
-  .masthead-decor span:nth-child(1){top:12%; left:6%; animation-delay:0s; font-size:2.8rem;}
-  .masthead-decor span:nth-child(2){top:62%; left:11%; animation-delay:1.2s; font-size:2rem;}
-  .masthead-decor span:nth-child(3){top:18%; right:9%; animation-delay:0.6s; font-size:3rem;}
-  .masthead-decor span:nth-child(4){top:68%; right:14%; animation-delay:2s; font-size:2.2rem;}
-  .masthead-decor span:nth-child(5){top:40%; left:48%; animation-delay:1.6s; font-size:1.6rem; opacity:0.2;}
+  .masthead-decor img:nth-child(1){top:12%; left:6%; width:90px; height:90px; animation-delay:0s;}
+  .masthead-decor img:nth-child(2){top:58%; left:10%; width:70px; height:70px; animation-delay:1.2s;}
+  .masthead-decor img:nth-child(3){top:14%; right:8%; width:95px; height:95px; animation-delay:0.6s;}
+  .masthead-decor img:nth-child(4){top:64%; right:12%; width:75px; height:75px; animation-delay:2s;}
+  .masthead-decor img:nth-child(5){top:38%; left:46%; width:60px; height:60px; animation-delay:1.6s; opacity:0.5;}
+  @media (max-width:600px){
+    .masthead-decor img{ display:none; }
+    .masthead-decor img:nth-child(3){ display:block; top:8%; right:4%; width:60px; height:60px; }
+  }
 
   .masthead-inner{
     position:relative;
@@ -243,7 +251,7 @@
     box-shadow:3px 3px 0 var(--ink);
     background:var(--sun);
   }
-  #channels, #shorts, #dispatches, #assistantPanel, #quiz, #donate{
+  #channels, #instagram, #twitter, #facebook, #parks, #animalmap, #shorts, #dispatches, #assistantPanel, #quiz, #platformer, #donate{
     scroll-margin-top:74px;
   }
 
@@ -301,6 +309,221 @@
   .channel-card.reddit{ background:linear-gradient(135deg, var(--reddit) 0%, var(--reddit-deep) 100%); }
   .channel-card.insta{ background:linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%); }
   .channel-card.dodo{ background:linear-gradient(135deg, #ff7a59 0%, #d62b4e 100%); }
+  .channel-card.bbcearth{ background:linear-gradient(135deg, #1a6e3c 0%, #0d3d22 100%); }
+
+  /* ---------- Instagram follow grid ---------- */
+  .ig-section{ padding:46px 0 10px; }
+  .ig-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:16px;
+  }
+  .ig-card{
+    background:var(--card);
+    border:2.5px solid var(--ink);
+    border-radius:20px;
+    padding:20px 18px 18px;
+    text-decoration:none;
+    color:var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .ig-card:hover{ transform:translate(-3px,-3px) rotate(-0.4deg); box-shadow:7px 7px 0 var(--ink); }
+  .ig-card-top{ display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .ig-card-avatar{
+    width:42px; height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg, #f9ce34 0%, #ee2a7b 55%, #6228d7 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+    border:2px solid var(--ink);
+    flex-shrink:0;
+  }
+  .ig-card-handle{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .ig-card-followers{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .ig-card-desc{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    line-height:1.45;
+    flex:1;
+  }
+  .ig-card-cta{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    color:#ee2a7b;
+  }
+
+  /* ---------- Twitter / X section ---------- */
+  .tw-section{ padding:46px 0 10px; }
+  .tw-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:16px;
+  }
+  .tw-card{
+    background:var(--ink);
+    border:2.5px solid var(--ink);
+    border-radius:20px;
+    padding:20px 18px 18px;
+    text-decoration:none;
+    color:#fff;
+    box-shadow:4px 4px 0 #444;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    position:relative;
+    overflow:hidden;
+  }
+  .tw-card::before{
+    content:"𝕏";
+    position:absolute;
+    right:-10px; bottom:-18px;
+    font-size:6rem;
+    font-weight:900;
+    color:rgba(255,255,255,0.06);
+    line-height:1;
+    pointer-events:none;
+  }
+  .tw-card:hover{ transform:translate(-3px,-3px) rotate(-0.4deg); box-shadow:7px 7px 0 #222; }
+  .tw-card-top{ display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .tw-card-avatar{
+    width:42px; height:42px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+    border:2px solid rgba(255,255,255,0.3);
+    flex-shrink:0;
+  }
+  .tw-card-handle{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    font-weight:700;
+    color:#fff;
+  }
+  .tw-card-followers{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    font-weight:600;
+    color:rgba(255,255,255,0.55);
+  }
+  .tw-card-desc{
+    font-size:0.85rem;
+    font-weight:600;
+    color:rgba(255,255,255,0.8);
+    line-height:1.45;
+    flex:1;
+    position:relative;
+  }
+  .tw-card-cta{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    color:var(--sun);
+    position:relative;
+  }
+
+  /* ---------- Facebook section ---------- */
+  .fb-section{ padding:46px 0 10px; }
+  .fb-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:16px;
+  }
+  .fb-card{
+    background:linear-gradient(160deg, #1877f2 0%, #0d5fcc 100%);
+    border:2.5px solid var(--ink);
+    border-radius:20px;
+    padding:20px 18px 18px;
+    text-decoration:none;
+    color:#fff;
+    box-shadow:4px 4px 0 var(--ink);
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    position:relative;
+    overflow:hidden;
+  }
+  .fb-card::before{
+    content:"f";
+    position:absolute;
+    right:-6px; bottom:-22px;
+    font-size:7rem;
+    font-weight:900;
+    font-family:Georgia, serif;
+    color:rgba(255,255,255,0.08);
+    line-height:1;
+    pointer-events:none;
+  }
+  .fb-card:hover{ transform:translate(-3px,-3px) rotate(-0.4deg); box-shadow:7px 7px 0 #0a3d80; }
+  .fb-card-top{ display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .fb-card-avatar{
+    width:42px; height:42px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.15);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+    border:2px solid rgba(255,255,255,0.35);
+    flex-shrink:0;
+  }
+  .fb-card-name{
+    font-family:'Baloo 2', sans-serif;
+    font-size:0.92rem;
+    font-weight:700;
+    color:#fff;
+    line-height:1.2;
+  }
+  .fb-card-likes{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    font-weight:600;
+    color:rgba(255,255,255,0.65);
+  }
+  .fb-card-desc{
+    font-size:0.85rem;
+    font-weight:600;
+    color:rgba(255,255,255,0.88);
+    line-height:1.45;
+    flex:1;
+    position:relative;
+  }
+  .fb-card-cta{
+    display:inline-block;
+    margin-top:12px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    color:#fff;
+    background:rgba(255,255,255,0.18);
+    border:1.5px solid rgba(255,255,255,0.4);
+    border-radius:100px;
+    padding:6px 14px;
+    transition:background 0.15s ease;
+    position:relative;
+    align-self:flex-start;
+  }
+  .fb-card:hover .fb-card-cta{ background:rgba(255,255,255,0.3); }
 
   .channel-card .deco{
     position:absolute;
@@ -309,6 +532,108 @@
     right:-8px; bottom:-22px;
     transform:rotate(-8deg);
   }
+
+  /* ---------- National Parks section ---------- */
+  .parks-section{ padding:50px 0 10px; }
+  .parks-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+  }
+  .park-card{
+    background:var(--card);
+    border:2.5px solid var(--ink);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:6px 6px 0 var(--ink);
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    text-decoration:none;
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+  }
+  .park-card:hover{ transform:translate(-3px,-3px) rotate(-0.3deg); box-shadow:9px 9px 0 var(--ink); }
+  .park-banner{
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .park-banner-emoji{
+    font-size:3.2rem;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+  .park-flag{
+    font-size:1.6rem;
+  }
+  .park-body{ padding:18px 20px 20px; flex:1; display:flex; flex-direction:column; gap:6px; }
+  .park-continent{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.66rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    opacity:0.7;
+  }
+  .park-name{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:1.2rem;
+    line-height:1.2;
+    margin:0;
+  }
+  .park-location{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .park-animals{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    margin:4px 0;
+  }
+  .park-animal-tag{
+    font-family:'Nunito', sans-serif;
+    font-size:0.74rem;
+    font-weight:700;
+    background:var(--cream-deep);
+    border:1.5px solid var(--rule);
+    border-radius:100px;
+    padding:3px 10px;
+    color:var(--ink-soft);
+  }
+  .park-desc{
+    font-size:0.88rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    line-height:1.5;
+    flex:1;
+    margin:0;
+  }
+  .park-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    margin-top:12px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    padding:8px 16px;
+    border-radius:100px;
+    border:2px solid var(--ink);
+    background:#fff;
+    color:var(--ink);
+    box-shadow:2px 2px 0 var(--ink);
+    align-self:flex-start;
+    transition:all 0.15s ease;
+  }
+  .park-card:hover .park-cta{ transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--ink); }
+
   .channel-top{
     display:flex; align-items:center; gap:12px; margin-bottom:14px;
   }
@@ -319,6 +644,13 @@
     display:flex; align-items:center; justify-content:center;
     font-size:1.5rem;
     border:2px solid rgba(255,255,255,0.5);
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .channel-badge img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
   }
   .channel-name{
     font-family:'Baloo 2', sans-serif;
@@ -417,16 +749,20 @@
     align-items:center;
     justify-content:center;
     overflow:hidden;
+    background-size:cover;
+    background-position:center;
   }
   .short-stage::after{
     content:"";
     position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%);
-  }
-  .short-emoji{
-    font-size:3.6rem;
-    filter:drop-shadow(0 4px 0 rgba(0,0,0,0.15));
+    background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);
     z-index:1;
+  }
+  .short-stage img.short-photo{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
   }
   .short-platform{
     position:absolute;
@@ -508,10 +844,54 @@
   .filter-btn.active.f-pets{ background:var(--leaf); border-color:var(--leaf-deep); box-shadow:3px 3px 0 var(--leaf-deep);}
   .filter-btn.active.f-prehistoric{ background:var(--fossil); border-color:var(--fossil-deep); box-shadow:3px 3px 0 var(--fossil-deep);}
 
+  .filter-thumb{
+    width:22px; height:22px;
+    border-radius:50%;
+    object-fit:cover;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:4px;
+    border:1.5px solid currentColor;
+    opacity:0.9;
+  }
+
   /* ---------- Entry cards ---------- */
   .entries{
     display:grid;
     gap:22px;
+  }
+  .load-more-row{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    margin-top:30px;
+  }
+  .load-more-btn{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    padding:13px 28px;
+    border:2.5px solid var(--ink);
+    background:#fff;
+    color:var(--ink);
+    border-radius:100px;
+    cursor:pointer;
+    box-shadow:4px 4px 0 var(--ink);
+    transition:all 0.15s ease;
+  }
+  .load-more-btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); background:var(--sun); }
+  .load-more-btn:disabled{
+    opacity:0.5;
+    cursor:default;
+    box-shadow:none;
+    transform:none;
+  }
+  .load-more-count{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.76rem;
+    color:var(--ink-soft);
+    font-weight:600;
   }
   .entry{
     background:var(--card);
@@ -521,6 +901,7 @@
     position:relative;
     box-shadow: 5px 5px 0 var(--ink);
     transition:transform 0.18s ease, box-shadow 0.18s ease;
+    animation:slideIn 0.3s ease;
   }
   .entry:hover{
     transform:translate(-3px,-3px) rotate(-0.3deg);
@@ -633,6 +1014,102 @@
     max-height:calc(100vh - 48px);
   }
   .guide-head{ flex-shrink:0; }
+
+  /* ---- AI mode toggle ---- */
+  .ai-mode-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .ai-mode-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:rgba(255,255,255,0.85);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .ai-mode-label .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--sun);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  .ai-mode-label .dot.off{
+    background:rgba(255,255,255,0.3);
+    animation:none;
+  }
+  .toggle-wrap{
+    position:relative;
+    width:52px;
+    height:28px;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .toggle-wrap input{
+    opacity:0;
+    width:0;height:0;
+    position:absolute;
+  }
+  .toggle-track{
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.2);
+    border-radius:100px;
+    border:2px solid rgba(255,255,255,0.35);
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .toggle-wrap input:checked ~ .toggle-track{
+    background:var(--sun);
+    border-color:var(--sun-deep);
+  }
+  .toggle-thumb{
+    position:absolute;
+    top:3px; left:3px;
+    width:18px; height:18px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 2px 4px rgba(0,0,0,0.25);
+    transition:transform 0.2s ease;
+  }
+  .toggle-wrap input:checked ~ .toggle-thumb{
+    transform:translateX(24px);
+  }
+
+  /* ---- Off-state message ---- */
+  .ai-off-msg{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:10px;
+    padding:24px 0;
+  }
+  .ai-off-icon{
+    font-size:2.8rem;
+    filter:grayscale(1);
+    opacity:0.5;
+  }
+  .ai-off-title{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:1.1rem;
+    color:rgba(255,255,255,0.6);
+    margin:0;
+  }
+  .ai-off-sub{
+    font-size:0.82rem;
+    font-weight:600;
+    color:rgba(255,255,255,0.45);
+    margin:0;
+    line-height:1.45;
+    max-width:240px;
+  }
   .guide-stamp{
     display:inline-flex;
     align-items:center;
@@ -1024,6 +1501,49 @@
   }
   .quiz-restart-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
 
+  /* ---------- Platformer game ---------- */
+  .game-section{ padding:50px 0 10px; }
+  .game-shell{
+    background:var(--ink);
+    border:3px solid var(--ink);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:7px 7px 0 rgba(43,42,51,0.3);
+    position:relative;
+    max-width:860px;
+  }
+  #gameCanvas{
+    display:block;
+    width:100%;
+    height:auto;
+    cursor:default;
+  }
+  .game-instructions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:16px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    max-width:860px;
+  }
+  .game-key{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+  }
+  .key-badge{
+    background:var(--ink);
+    color:#fff;
+    border-radius:7px;
+    padding:3px 9px;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+  }
+
   /* ---------- Donate grid ---------- */
   .donate-section{ padding:50px 0 10px; }
   .donate-intro{
@@ -1134,7 +1654,114 @@
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important; transition:none !important;}
   }
+
+  /* ---------- Animal World Map ---------- */
+  .map-section{ padding:50px 0 10px; }
+  .map-controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:18px;
+    align-items:center;
+  }
+  .map-filter-btn{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    padding:8px 15px;
+    border:2.5px solid var(--ink);
+    background:#fff;
+    color:var(--ink);
+    border-radius:100px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+    box-shadow:2px 2px 0 var(--ink);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .map-filter-btn:hover{ transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--ink); }
+  .map-filter-btn.active{ background:var(--ink); color:#fff; }
+  .map-filter-btn.active.mf-cats{ background:var(--coral); border-color:var(--coral-deep); }
+  .map-filter-btn.active.mf-ocean{ background:var(--teal); border-color:var(--teal-deep); }
+  .map-filter-btn.active.mf-weird{ background:var(--berry); border-color:var(--berry-deep); }
+  .map-filter-btn.active.mf-mammals{ background:#c8631f; border-color:#9c4a13; }
+  .map-filter-btn.active.mf-birds{ background:#4a90d9; border-color:#2e6eb5; }
+  .map-filter-btn.active.mf-prehistoric{ background:var(--fossil); border-color:var(--fossil-deep); }
+  .map-filter-btn.active.mf-parks{ background:#2d7a4a; border-color:#1a4a2e; }
+  .map-count{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.74rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-left:auto;
+  }
+  .map-wrap{
+    border:3px solid var(--ink);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:7px 7px 0 var(--ink);
+    height:500px;
+  }
+  #animalMap{ width:100%; height:100%; }
+  .leaflet-container{ font-family:'Nunito', sans-serif; }
+  .animal-popup .leaflet-popup-content-wrapper{
+    border:2.5px solid var(--ink);
+    border-radius:16px;
+    box-shadow:4px 4px 0 rgba(43,42,51,0.18);
+    padding:0;
+  }
+  .animal-popup .leaflet-popup-content{ margin:0; }
+  .animal-popup .leaflet-popup-tip{ background:#fff; }
+  .popup-inner{
+    padding:14px 16px;
+    min-width:180px;
+    max-width:240px;
+  }
+  .popup-emoji{ font-size:2.2rem; display:block; margin-bottom:6px; }
+  .popup-name{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    margin:0 0 3px;
+  }
+  .popup-loc{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:7px;
+  }
+  .popup-desc{
+    font-size:0.83rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    line-height:1.45;
+    margin:0;
+  }
+  .map-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:14px;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+  .legend-dot{
+    width:12px; height:12px;
+    border-radius:50%;
+    border:2px solid rgba(0,0,0,0.25);
+    flex-shrink:0;
+  }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 </head>
 <body>
 
@@ -1145,7 +1772,11 @@
 
 <header class="masthead">
   <div class="masthead-decor">
-    <span>🐾</span><span>🐙</span><span>🦎</span><span>🐠</span><span>🦋</span>
+    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=180&h=180&fit=crop&auto=format&q=80" alt="lion">
+    <img src="https://images.unsplash.com/photo-1564492051408-8969bf1b8ffb?w=140&h=140&fit=crop&auto=format&q=80" alt="octopus">
+    <img src="https://images.unsplash.com/photo-1553338258-24fe91e8baf3?w=190&h=190&fit=crop&auto=format&q=80" alt="dinosaur">
+    <img src="https://images.unsplash.com/photo-1601758003839-512c0f4159e5?w=150&h=150&fit=crop&auto=format&q=80" alt="dog">
+    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=120&h=120&fit=crop&auto=format&q=80" alt="cat">
   </div>
   <div class="wrap masthead-inner">
     <div class="eyebrow"><span class="dot"></span> AI-powered animal feed</div>
@@ -1168,10 +1799,16 @@
   <div class="wrap">
     <div class="quickjump-row">
       <a class="quickjump-link" href="#channels">📺 Channels</a>
+      <a class="quickjump-link" href="#instagram">📸 Instagram</a>
+      <a class="quickjump-link" href="#twitter">𝕏 Twitter</a>
+      <a class="quickjump-link" href="#facebook">📘 Facebook</a>
+      <a class="quickjump-link" href="#parks">🗺️ Parks</a>
+      <a class="quickjump-link" href="#animalmap">📍 Animal Map</a>
       <a class="quickjump-link" href="#shorts">📱 Shorts &amp; Reels</a>
       <a class="quickjump-link" href="#dispatches">🗂️ Dispatches</a>
       <a class="quickjump-link" href="#assistantPanel">🧭 Assistant</a>
       <a class="quickjump-link" href="#quiz">🎮 Quiz</a>
+      <a class="quickjump-link" href="#platformer">🕹️ Game</a>
       <a class="quickjump-link" href="#donate">💙 Donate</a>
     </div>
   </div>
@@ -1185,7 +1822,7 @@
     <div class="channel-card blue">
       <span class="deco">🌊</span>
       <div class="channel-top">
-        <div class="channel-badge">🐙</div>
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1564492051408-8969bf1b8ffb?w=92&h=92&fit=crop&auto=format&q=80" alt="octopus"></div>
         <div>
           <div class="channel-name">BeyondTheBlue</div>
           <div class="channel-handle">youtube.com/@BeyondTheBlue</div>
@@ -1202,7 +1839,7 @@
     <div class="channel-card green">
       <span class="deco">🌿</span>
       <div class="channel-top">
-        <div class="channel-badge">🦎</div>
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1674465147112-db1a7dfa5b94?w=92&h=92&fit=crop&auto=format&q=80" alt="reptile"></div>
         <div>
           <div class="channel-name">BeyondTheGreen</div>
           <div class="channel-handle">youtube.com/@OfficialBeyondTheGreen</div>
@@ -1218,7 +1855,7 @@
     <div class="channel-card fossil">
       <span class="deco">🦖</span>
       <div class="channel-top">
-        <div class="channel-badge">🦴</div>
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1553338258-24fe91e8baf3?w=92&h=92&fit=crop&auto=format&q=80" alt="dinosaur"></div>
         <div>
           <div class="channel-name">ExtinctZoo</div>
           <div class="channel-handle">youtube.com/@ExtinctZoo</div>
@@ -1235,7 +1872,7 @@
     <div class="channel-card reddit">
       <span class="deco">💬</span>
       <div class="channel-top">
-        <div class="channel-badge">🐾</div>
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1664892378974-b2de0259a78d?w=92&h=92&fit=crop&auto=format&q=80" alt="wildlife"></div>
         <div>
           <div class="channel-name">r/Animals</div>
           <div class="channel-handle">reddit.com/r/Animals</div>
@@ -1252,7 +1889,7 @@
     <div class="channel-card insta">
       <span class="deco">📸</span>
       <div class="channel-top">
-        <div class="channel-badge">🦓</div>
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=92&h=92&fit=crop&auto=format&q=80" alt="lion"></div>
         <div>
           <div class="channel-name">National Geographic Animals</div>
           <div class="channel-handle">instagram.com/natgeoanimals</div>
@@ -1268,7 +1905,7 @@
     <div class="channel-card dodo">
       <span class="deco">🐶</span>
       <div class="channel-top">
-        <div class="channel-badge">🐾</div>
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1601758003839-512c0f4159e5?w=92&h=92&fit=crop&auto=format&q=80" alt="dog"></div>
         <div>
           <div class="channel-name">The Dodo</div>
           <div class="channel-handle">@thedodo</div>
@@ -1280,6 +1917,435 @@
         <a class="channel-video-link" href="https://www.tiktok.com/@thedodo" target="_blank" rel="noopener"><span class="play">♪</span> Follow on TikTok</a>
       </div>
     </div>
+
+    <div class="channel-card bbcearth">
+      <span class="deco">🌍</span>
+      <div class="channel-top">
+        <div class="channel-badge"><img src="https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?w=92&h=92&fit=crop&auto=format&q=80" alt="whale shark"></div>
+        <div>
+          <div class="channel-name">BBC Earth</div>
+          <div class="channel-handle">instagram.com/bbcearth</div>
+        </div>
+      </div>
+      <p class="channel-tagline">11M followers. The Instagram arm of the BBC's wildlife empire — stunning photography, clips from Planet Earth, and animal facts that stop the scroll dead.</p>
+      <a class="channel-cta" href="https://www.instagram.com/bbcearth/" target="_blank" rel="noopener">📸 Visit profile</a>
+      <div class="channel-videos">
+        <a class="channel-video-link" href="https://www.instagram.com/reel/DIJQPx7tg1Q/" target="_blank" rel="noopener"><span class="play">▶</span> Keep your eye out 👀 #Dinosaurs</a>
+        <a class="channel-video-link" href="https://www.instagram.com/bbcearth/reels/" target="_blank" rel="noopener"><span class="play">▶</span> Browse all BBC Earth Reels</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="wrap ig-section" id="instagram">
+  <h2 class="section-label">📸 More Instagram to follow</h2>
+  <p class="section-sub">Four accounts worth hitting follow on — from 6M-strong viral clips to one man photographing every endangered species on the planet.</p>
+  <div class="ig-grid">
+
+    <a class="ig-card" href="https://www.instagram.com/animalsdoingthings/" target="_blank" rel="noopener">
+      <div class="ig-card-top">
+        <div class="ig-card-avatar">🐾</div>
+        <div>
+          <div class="ig-card-handle">@animalsdoingthings</div>
+          <div class="ig-card-followers">6M followers</div>
+        </div>
+      </div>
+      <p class="ig-card-desc">The internet's favourite animal clip aggregator — if something funny, weird, or heartwarming happened in the animal kingdom, it ends up here.</p>
+      <span class="ig-card-cta">Follow on Instagram ↗</span>
+    </a>
+
+    <a class="ig-card" href="https://www.instagram.com/joelsartore/" target="_blank" rel="noopener">
+      <div class="ig-card-top">
+        <div class="ig-card-avatar">📷</div>
+        <div>
+          <div class="ig-card-handle">@joelsartore</div>
+          <div class="ig-card-followers">National Geographic Photo Ark</div>
+        </div>
+      </div>
+      <p class="ig-card-desc">NatGeo photographer Joel Sartore is photographing every species in human care before it's too late. His portraits of critically endangered animals are unlike anything else on Instagram.</p>
+      <span class="ig-card-cta">Follow on Instagram ↗</span>
+    </a>
+
+    <a class="ig-card" href="https://www.instagram.com/discoverwildlife/" target="_blank" rel="noopener">
+      <div class="ig-card-top">
+        <div class="ig-card-avatar">🦘</div>
+        <div>
+          <div class="ig-card-handle">@discoverwildlife</div>
+          <div class="ig-card-followers">103K followers</div>
+        </div>
+      </div>
+      <p class="ig-card-desc">Conservation-first account that donates directly to wildlife rescue organisations — $42K to WIRES and $35K to HERD so far. Photography with a purpose.</p>
+      <span class="ig-card-cta">Follow on Instagram ↗</span>
+    </a>
+
+    <a class="ig-card" href="https://www.instagram.com/wildlife/" target="_blank" rel="noopener">
+      <div class="ig-card-top">
+        <div class="ig-card-avatar">🦁</div>
+        <div>
+          <div class="ig-card-handle">@wildlife</div>
+          <div class="ig-card-followers">307K followers</div>
+        </div>
+      </div>
+      <p class="ig-card-desc">"Beautiful photos of wildlife from around the world." A curated stream of the best wildlife photography submitted from photographers everywhere.</p>
+      <span class="ig-card-cta">Follow on Instagram ↗</span>
+    </a>
+
+  </div>
+</div>
+
+<div class="wrap tw-section" id="twitter">
+  <h2 class="section-label">𝕏 Twitter / X to follow</h2>
+  <p class="section-sub">Four of the best animal and wildlife accounts on X — from a 4-million-follower TV channel to the world's biggest conservation org.</p>
+  <div class="tw-grid">
+
+    <a class="tw-card" href="https://x.com/AnimalPlanet" target="_blank" rel="noopener">
+      <div class="tw-card-top">
+        <div class="tw-card-avatar">🦁</div>
+        <div>
+          <div class="tw-card-handle">@AnimalPlanet</div>
+          <div class="tw-card-followers">4M followers</div>
+        </div>
+      </div>
+      <p class="tw-card-desc">The TV channel that's made animals its entire personality — now on X with photos, clips, and facts from the most entertaining creatures on the planet.</p>
+      <span class="tw-card-cta">Follow on X ↗</span>
+    </a>
+
+    <a class="tw-card" href="https://x.com/World_Wildlife" target="_blank" rel="noopener">
+      <div class="tw-card-top">
+        <div class="tw-card-avatar">🐼</div>
+        <div>
+          <div class="tw-card-handle">@World_Wildlife</div>
+          <div class="tw-card-followers">1.2M followers · WWF-US</div>
+        </div>
+      </div>
+      <p class="tw-card-desc">World Wildlife Fund's US account. 241,000+ posts on how animals and humans should co-exist. Conservation news, campaign updates, and why nature needs us now.</p>
+      <span class="tw-card-cta">Follow on X ↗</span>
+    </a>
+
+    <a class="tw-card" href="https://x.com/NatGeoWild" target="_blank" rel="noopener">
+      <div class="tw-card-top">
+        <div class="tw-card-avatar">🌍</div>
+        <div>
+          <div class="tw-card-handle">@NatGeoWild</div>
+          <div class="tw-card-followers">1M+ followers</div>
+        </div>
+      </div>
+      <p class="tw-card-desc">National Geographic Wild's dedicated wildlife account — stunning photography, insightful articles, and the same world-class animal content NatGeo is known for, in tweet form.</p>
+      <span class="tw-card-cta">Follow on X ↗</span>
+    </a>
+
+    <a class="tw-card" href="https://x.com/BBCEarth" target="_blank" rel="noopener">
+      <div class="tw-card-top">
+        <div class="tw-card-avatar">🌿</div>
+        <div>
+          <div class="tw-card-handle">@BBCEarth</div>
+          <div class="tw-card-followers">BBC Earth</div>
+        </div>
+      </div>
+      <p class="tw-card-desc">The same BBC Earth that makes Planet Earth and Blue Planet — on X with clips, facts, and behind-the-scenes from some of the most breathtaking wildlife footage ever filmed.</p>
+      <span class="tw-card-cta">Follow on X ↗</span>
+    </a>
+
+  </div>
+</div>
+
+<div class="wrap fb-section" id="facebook">
+  <h2 class="section-label">📘 Facebook pages to follow</h2>
+  <p class="section-sub">Four of the biggest animal pages on Facebook — combined that's over 55 million likes worth of wildlife content.</p>
+  <div class="fb-grid">
+
+    <a class="fb-card" href="https://www.facebook.com/AnimalPlanet/" target="_blank" rel="noopener">
+      <div class="fb-card-top">
+        <div class="fb-card-avatar">🦁</div>
+        <div>
+          <div class="fb-card-name">Animal Planet</div>
+          <div class="fb-card-likes">19.8M likes</div>
+        </div>
+      </div>
+      <p class="fb-card-desc">The official Animal Planet Facebook page — their biggest social presence and the best place to catch animal stories, clips, and everything from puppy rescues to wild predator footage.</p>
+      <span class="fb-card-cta">👍 Like on Facebook</span>
+    </a>
+
+    <a class="fb-card" href="https://www.facebook.com/bbcearth/" target="_blank" rel="noopener">
+      <div class="fb-card-top">
+        <div class="fb-card-avatar">🌍</div>
+        <div>
+          <div class="fb-card-name">BBC Earth</div>
+          <div class="fb-card-likes">18.7M likes · "A window to our world 🌎"</div>
+        </div>
+      </div>
+      <p class="fb-card-desc">BBC Earth's Facebook is one of the most-watched nature pages on the platform — behind-the-lens stories, stunning reels, and footage from Planet Earth and Blue Planet series.</p>
+      <span class="fb-card-cta">👍 Like on Facebook</span>
+    </a>
+
+    <a class="fb-card" href="https://www.facebook.com/NatGeoAnimals/" target="_blank" rel="noopener">
+      <div class="fb-card-top">
+        <div class="fb-card-avatar">🐘</div>
+        <div>
+          <div class="fb-card-name">National Geographic Animals</div>
+          <div class="fb-card-likes">14.5M likes</div>
+        </div>
+      </div>
+      <p class="fb-card-desc">"Explore the wonders of the animal kingdom with National Geographic." The dedicated animals page from the outlet that's been covering wildlife longer than almost anyone else.</p>
+      <span class="fb-card-cta">👍 Like on Facebook</span>
+    </a>
+
+    <a class="fb-card" href="https://www.facebook.com/worldwildlifefund/" target="_blank" rel="noopener">
+      <div class="fb-card-top">
+        <div class="fb-card-avatar">🐼</div>
+        <div>
+          <div class="fb-card-name">World Wildlife Fund</div>
+          <div class="fb-card-likes">2.9M likes · WWF</div>
+        </div>
+      </div>
+      <p class="fb-card-desc">WWF's Facebook — 60 years of conservation work condensed into daily posts on endangered species, habitat protection, and how people and nature can thrive together.</p>
+      <span class="fb-card-cta">👍 Like on Facebook</span>
+    </a>
+
+  </div>
+</div>
+
+<div class="wrap parks-section" id="parks">
+  <h2 class="section-label">🗺️ National Parks &amp; Wildlife Reserves</h2>
+  <p class="section-sub">Six of the world's great wildlife destinations — from America's first national park to the Galápagos, where Darwin's theory of evolution was born.</p>
+  <div class="parks-grid">
+
+    <a class="park-card" href="https://www.nps.gov/yell/index.htm" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#4a7c59,#2d5a40);">
+        <span class="park-banner-emoji">🦬</span>
+        <span class="park-flag">🇺🇸</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">North America</div>
+        <h3 class="park-name">Yellowstone National Park</h3>
+        <div class="park-location">📍 Wyoming, USA — est. 1872</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦬 Bison</span>
+          <span class="park-animal-tag">🐺 Wolves</span>
+          <span class="park-animal-tag">🐻 Grizzlies</span>
+          <span class="park-animal-tag">🦅 Bald Eagle</span>
+        </div>
+        <p class="park-desc">The world's first national park and "America's Serengeti." Home to the continent's largest free-roaming mammal population — wolves were controversially reintroduced in 1995 and have become one of conservation's greatest success stories.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.tanzaniaparks.go.tz/parks/view/serengeti" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#c8821a,#9c5c0e);">
+        <span class="park-banner-emoji">🦓</span>
+        <span class="park-flag">🇹🇿</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">East Africa</div>
+        <h3 class="park-name">Serengeti National Park</h3>
+        <div class="park-location">📍 Tanzania — UNESCO World Heritage Site</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦁 Big Five</span>
+          <span class="park-animal-tag">🦓 Great Migration</span>
+          <span class="park-animal-tag">🐆 Cheetah</span>
+        </div>
+        <p class="park-desc">Home to the Great Migration — two million wildebeest, zebras, and gazelles thundering across 5,700 square miles in what's called the greatest wildlife spectacle on Earth. The Big Five are year-round residents.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.sanparks.org/parks/kruger" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#7a5c2e,#4a3518);">
+        <span class="park-banner-emoji">🐘</span>
+        <span class="park-flag">🇿🇦</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">Southern Africa</div>
+        <h3 class="park-name">Kruger National Park</h3>
+        <div class="park-location">📍 South Africa — 5 million acres</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦁 Big Five</span>
+          <span class="park-animal-tag">🦏 Rhino</span>
+          <span class="park-animal-tag">🐊 Crocodile</span>
+        </div>
+        <p class="park-desc">Africa's most iconic safari park — 5 million acres with one of the highest densities of wildlife on the continent. Self-drive safaris, luxury lodges, and 147 mammal species including all of the Big Five.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://galapagos.gob.ec/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#1a7a87,#0d4f5e);">
+        <span class="park-banner-emoji">🐢</span>
+        <span class="park-flag">🇪🇨</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">South Pacific</div>
+        <h3 class="park-name">Galápagos National Park</h3>
+        <div class="park-location">📍 Ecuador — where Darwin changed biology</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🐢 Giant Tortoise</span>
+          <span class="park-animal-tag">🦎 Marine Iguana</span>
+          <span class="park-animal-tag">🐧 Penguin</span>
+        </div>
+        <p class="park-desc">A living laboratory of evolution — the archipelago that inspired Darwin's theory of natural selection. Giant tortoises, marine iguanas, and blue-footed boobies found nowhere else on Earth. Species here have no fear of humans.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.visitrwanda.com/interests/gorilla-trekking/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#2d6b3a,#1a4022);">
+        <span class="park-banner-emoji">🦍</span>
+        <span class="park-flag">🇷🇼</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">Central Africa</div>
+        <h3 class="park-name">Volcanoes National Park</h3>
+        <div class="park-location">📍 Rwanda — gorilla trekking capital</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦍 Mountain Gorilla</span>
+          <span class="park-animal-tag">🐒 Golden Monkey</span>
+          <span class="park-animal-tag">🦁 Buffalo</span>
+        </div>
+        <p class="park-desc">The world's most significant mountain gorilla habitat — fewer than 1,100 survive in the wild, and Volcanoes protects a large share of them. Trekking through dense mist-forest to sit with a gorilla family is regarded as one of the world's great wildlife experiences.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.icmbio.gov.br/parnaamazonia/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#1f7a3a,#0e4720);">
+        <span class="park-banner-emoji">🌿</span>
+        <span class="park-flag">🇧🇷</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">South America</div>
+        <h3 class="park-name">Amazon National Park</h3>
+        <div class="park-location">📍 Brazil — world's largest rainforest</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🐆 Jaguar</span>
+          <span class="park-animal-tag">🐊 Caiman</span>
+          <span class="park-animal-tag">🦜 Macaw</span>
+          <span class="park-animal-tag">🐬 River Dolphin</span>
+        </div>
+        <p class="park-desc">The Amazon is home to an estimated 10% of all species on Earth — jaguars, pink river dolphins, electric eels, poison dart frogs, and millions of insects yet to be named. The world's lungs and one of its greatest wildlife frontiers.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://parks.canada.ca/pn-np/ab/banff" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#2e6fa3,#1a4a73);">
+        <span class="park-banner-emoji">🏔️</span>
+        <span class="park-flag">🇨🇦</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">Canada</div>
+        <h3 class="park-name">Banff National Park</h3>
+        <div class="park-location">📍 Alberta — est. 1885 · Canada's first national park</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🐻 Grizzly Bear</span>
+          <span class="park-animal-tag">🦌 Elk</span>
+          <span class="park-animal-tag">🐺 Wolf</span>
+          <span class="park-animal-tag">🐐 Mountain Goat</span>
+        </div>
+        <p class="park-desc">Home to 56 species of mammals, 300 species of birds, and more than 800 species of plants across glacial lakes, soaring peaks, and dense coniferous forest. It has the most wildlife crossings — 38 underpasses and 6 overpasses — in the world.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://parks.canada.ca/pn-np/ab/jasper" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#1a5c8a,#0d3a5c);">
+        <span class="park-banner-emoji">🌌</span>
+        <span class="park-flag">🇨🇦</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">Canada</div>
+        <h3 class="park-name">Jasper National Park</h3>
+        <div class="park-location">📍 Alberta — UNESCO World Heritage Site · Dark Sky Preserve</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦌 Caribou</span>
+          <span class="park-animal-tag">🫎 Moose</span>
+          <span class="park-animal-tag">🐻 Black Bear</span>
+          <span class="park-animal-tag">🦊 Arctic Fox</span>
+        </div>
+        <p class="park-desc">Canada's largest Rocky Mountain national park and one of the world's largest Dark Sky Preserves — where caribou, moose, and wolves roam beneath skies unobstructed by light pollution. Shares the Icefields Parkway with Banff, one of the world's great wildlife drives.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://corbettgov.org/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#8a6a1a,#5c430d);">
+        <span class="park-banner-emoji">🐯</span>
+        <span class="park-flag">🇮🇳</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">India</div>
+        <h3 class="park-name">Jim Corbett National Park</h3>
+        <div class="park-location">📍 Uttarakhand — Asia's first national park (1936)</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🐯 Bengal Tiger</span>
+          <span class="park-animal-tag">🐘 Asian Elephant</span>
+          <span class="park-animal-tag">🐆 Leopard</span>
+          <span class="park-animal-tag">🦅 600+ bird species</span>
+        </div>
+        <p class="park-desc">Asia's first national park, established in 1936, with one of the world's highest densities of Bengal tigers — over 260 recorded in the park. Named after the legendary conservationist-hunter Jim Corbett, and the birthplace of Project Tiger in 1973.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.kaziranga-national-park.com/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#5c8a1a,#3a5c0d);">
+        <span class="park-banner-emoji">🦏</span>
+        <span class="park-flag">🇮🇳</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">India</div>
+        <h3 class="park-name">Kaziranga National Park</h3>
+        <div class="park-location">📍 Assam — UNESCO World Heritage Site since 1985</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦏 One-Horned Rhino</span>
+          <span class="park-animal-tag">🐯 Bengal Tiger</span>
+          <span class="park-animal-tag">🐘 Asian Elephant</span>
+          <span class="park-animal-tag">🦬 Wild Buffalo</span>
+        </div>
+        <p class="park-desc">Holds about two-thirds of the world's wild one-horned rhinos — 2,613 individuals as of 2022, the highest count ever recorded. Also has one of the world's highest tiger densities, and the world's largest population of wild water buffalo.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.rajasthanwildlife.in/ranthambore-national-park/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#a8461a,#7a2e0d);">
+        <span class="park-banner-emoji">🏯</span>
+        <span class="park-flag">🇮🇳</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">India</div>
+        <h3 class="park-name">Ranthambore National Park</h3>
+        <div class="park-location">📍 Rajasthan — tigers among ancient Mughal ruins</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🐯 Bengal Tiger</span>
+          <span class="park-animal-tag">🐆 Leopard</span>
+          <span class="park-animal-tag">🦌 Sambar Deer</span>
+          <span class="park-animal-tag">🐊 Marsh Crocodile</span>
+        </div>
+        <p class="park-desc">One of the most famous tiger reserves in India — where Bengal tigers are reliably spotted in the open, often photographed resting in the shadow of 10th-century fort ruins. One of the few places in the world where tigers can be seen in such dramatic historical landscapes.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
+
+    <a class="park-card" href="https://www.komodopark.com/" target="_blank" rel="noopener">
+      <div class="park-banner" style="background:linear-gradient(135deg,#6a8a2a,#435c1a);">
+        <span class="park-banner-emoji">🦎</span>
+        <span class="park-flag">🇮🇩</span>
+      </div>
+      <div class="park-body">
+        <div class="park-continent">Southeast Asia</div>
+        <h3 class="park-name">Komodo National Park</h3>
+        <div class="park-location">📍 Indonesia — exclusive home of the Komodo dragon</div>
+        <div class="park-animals">
+          <span class="park-animal-tag">🦎 Komodo Dragon</span>
+          <span class="park-animal-tag">🦈 Reef Shark</span>
+          <span class="park-animal-tag">🐢 Sea Turtle</span>
+          <span class="park-animal-tag">🦅 Orange-footed Scrubfowl</span>
+        </div>
+        <p class="park-desc">Home to the Komodo dragon — the world's largest living lizard, capable of taking down a water buffalo. Above the waterline it's a land of prehistoric reptiles; below it, some of the most biodiverse coral reefs and marine life on the planet.</p>
+        <span class="park-cta">Visit official site ↗</span>
+      </div>
+    </a>
 
   </div>
 </div>
@@ -1298,18 +2364,33 @@
       <p class="section-sub">Specimen count: <strong id="specimenCount">0</strong> and counting.</p>
       <div class="filters" id="filterBar">
         <button class="filter-btn active" data-filter="all">✨ All entries</button>
-        <button class="filter-btn f-cats" data-filter="cats">🦁 Big cats</button>
-        <button class="filter-btn f-ocean" data-filter="ocean">🌊 Deep sea</button>
-        <button class="filter-btn f-weird" data-filter="weird">🦔 Unusual</button>
-        <button class="filter-btn f-pets" data-filter="pets">🐶 Dogs &amp; cats</button>
-        <button class="filter-btn f-prehistoric" data-filter="prehistoric">🦴 Prehistoric</button>
+        <button class="filter-btn f-cats" data-filter="cats"><img class="filter-thumb" src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=44&h=44&fit=crop&auto=format&q=70" alt=""> Big cats</button>
+        <button class="filter-btn f-ocean" data-filter="ocean"><img class="filter-thumb" src="https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?w=44&h=44&fit=crop&auto=format&q=70" alt=""> Deep sea</button>
+        <button class="filter-btn f-weird" data-filter="weird"><img class="filter-thumb" src="https://images.unsplash.com/photo-1564492051408-8969bf1b8ffb?w=44&h=44&fit=crop&auto=format&q=70" alt=""> Unusual</button>
+        <button class="filter-btn f-pets" data-filter="pets"><img class="filter-thumb" src="https://images.unsplash.com/photo-1601758003839-512c0f4159e5?w=44&h=44&fit=crop&auto=format&q=70" alt=""> Dogs &amp; cats</button>
+        <button class="filter-btn f-prehistoric" data-filter="prehistoric"><img class="filter-thumb" src="https://images.unsplash.com/photo-1553338258-24fe91e8baf3?w=44&h=44&fit=crop&auto=format&q=70" alt=""> Prehistoric</button>
       </div>
 
       <div class="entries" id="entriesGrid"></div>
+      <div class="load-more-row" id="loadMoreRow">
+        <button class="load-more-btn" id="loadMoreBtn">Load more dispatches ↓</button>
+        <span class="load-more-count" id="loadMoreCount"></span>
+      </div>
     </main>
 
     <aside class="guide-panel" id="assistantPanel">
       <div class="guide-head">
+        <div class="ai-mode-row">
+          <div class="ai-mode-label" id="aiModeLabel">
+            <span class="dot" id="aiDot"></span>
+            <span id="aiModeText">AI Mode — On</span>
+          </div>
+          <label class="toggle-wrap" title="Toggle AI mode">
+            <input type="checkbox" id="aiModeToggle" checked>
+            <div class="toggle-track"></div>
+            <div class="toggle-thumb"></div>
+          </label>
+        </div>
         <div class="guide-stamp"><span class="dot"></span> 🧭 Wild Pages Assistant</div>
         <h2 class="guide-title">Your AI animal assistant</h2>
         <p class="guide-sub">Ask it anything about animals, or tell it what you're into — it remembers the conversation as you go.</p>
@@ -1319,7 +2400,13 @@
         <div class="chat-msg assistant">Hey! I'm the Wild Pages assistant. Ask me an animal question, or tell me what you're curious about and I'll dig through the archive for matching dispatches. 🐾</div>
       </div>
 
-      <div class="guide-foot">
+      <div class="ai-off-msg" id="aiOffMsg" style="display:none;">
+        <div class="ai-off-icon">🤖</div>
+        <p class="ai-off-title">AI Mode is off</p>
+        <p class="ai-off-sub">Flip the switch above to turn on the assistant and start chatting about animals.</p>
+      </div>
+
+      <div class="guide-foot" id="guideFoot">
         <div class="quick-chips">
           <button class="chip" data-q="apex predators">🦁 apex predators</button>
           <button class="chip" data-q="how fast can a cheetah actually run?">⚡ cheetah speed?</button>
@@ -1337,11 +2424,53 @@
   </div>
 </div>
 
+<div class="wrap map-section" id="animalmap">
+  <h2 class="section-label">🗺️ Animals of the World</h2>
+  <p class="section-sub">40+ animals mapped to where they actually live — click any marker to find out more.</p>
+  <div class="map-controls" id="mapControls">
+    <button class="map-filter-btn active" data-cat="all">✨ All</button>
+    <button class="map-filter-btn mf-cats" data-cat="cats">🦁 Big Cats</button>
+    <button class="map-filter-btn mf-ocean" data-cat="ocean">🌊 Ocean</button>
+    <button class="map-filter-btn mf-mammals" data-cat="mammals">🐘 Mammals</button>
+    <button class="map-filter-btn mf-birds" data-cat="birds">🦅 Birds</button>
+    <button class="map-filter-btn mf-weird" data-cat="weird">🦔 Unusual</button>
+    <button class="map-filter-btn mf-prehistoric" data-cat="prehistoric">🦴 Prehistoric</button>
+    <button class="map-filter-btn mf-parks" data-cat="parks">🏕️ Parks</button>
+    <span class="map-count" id="mapCount">Loading…</span>
+  </div>
+  <div class="map-wrap">
+    <div id="animalMap"></div>
+  </div>
+  <div class="map-legend" id="mapLegend">
+    <div class="legend-item"><span class="legend-dot" style="background:#ff6b4a;"></span>Big Cats</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#00b4a6;"></span>Ocean</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#c8631f;"></span>Mammals</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#4a90d9;"></span>Birds</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#b45ac2;"></span>Unusual</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#c9802e;"></span>Prehistoric sites</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#2d7a4a;border-radius:3px;"></span>National Parks</div>
+  </div>
+</div>
+
 <div class="wrap quiz-section" id="quiz">
   <h2 class="section-label">🎮 Games &amp; Quiz</h2>
   <p class="section-sub">Think you know your animals? Pick a category and find out.</p>
 
   <div class="quiz-shell" id="quizShell"></div>
+</div>
+
+<div class="wrap game-section" id="platformer">
+  <h2 class="section-label">🕹️ Wild Dash — Platformer</h2>
+  <p class="section-sub">Play as a cheetah, collect paw prints, stomp crabs, and race to the finish flag.</p>
+  <div class="game-shell">
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
+  </div>
+  <div class="game-instructions">
+    <span class="game-key"><span class="key-badge">← →</span> Move</span>
+    <span class="game-key"><span class="key-badge">Space / ↑</span> Jump</span>
+    <span class="game-key"><span class="key-badge">Stomp</span> Jump on enemies from above</span>
+    <span class="game-key">📱 Touch buttons on mobile</span>
+  </div>
 </div>
 
 <div class="wrap donate-section" id="donate">
@@ -1846,6 +2975,22 @@ const SHORTS = [
     keywords:["wildlife","nature","instagram","reel"]
   },
   {
+    id:"ig3", platform:"ig", emoji:"🦕",
+    title:"Keep Your Eye Out 👀 #Dinosaurs",
+    account:"@bbcearth on Instagram",
+    body:"A blink-and-you-miss-it clip from BBC Earth's Instagram — the kind of prehistoric camouflage moment that earns a double-take.",
+    url:"https://www.instagram.com/reel/DIJQPx7tg1Q/",
+    keywords:["dinosaur","prehistoric","bbcearth","camouflage","reel"]
+  },
+  {
+    id:"ig4", platform:"ig", emoji:"🌊",
+    title:"Browse BBC Earth Reels",
+    account:"@bbcearth on Instagram — 11M followers",
+    body:"Eleven million people follow BBC Earth's Instagram for a reason. Dip into their Reels and find out why.",
+    url:"https://www.instagram.com/bbcearth/reels/",
+    keywords:["wildlife","nature","ocean","bbcearth","reel","planet earth"]
+  },
+  {
     id:"t5", platform:"tt", emoji:"🐕",
     title:"A Cheeseburger Changed This Dog's Life",
     account:"@thedodo on TikTok",
@@ -1867,6 +3012,13 @@ const SHORTS = [
 const grid = document.getElementById('entriesGrid');
 const filterBar = document.getElementById('filterBar');
 const specimenCount = document.getElementById('specimenCount');
+const loadMoreRow = document.getElementById('loadMoreRow');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const loadMoreCount = document.getElementById('loadMoreCount');
+
+const PAGE_SIZE = 6;
+let currentFilter = "all";
+let visibleCount = PAGE_SIZE;
 
 const TAG_LABEL = {cats:"🦁 Big cats", ocean:"🌊 Deep sea", weird:"🦔 Unusual", pets:"🐶 Dogs & cats", prehistoric:"🦴 Prehistoric"};
 const TAG_CLASS = {cats:"tag-cats", ocean:"tag-ocean", weird:"tag-weird", pets:"tag-pets", prehistoric:"tag-prehistoric"};
@@ -1891,9 +3043,34 @@ function entryCardHTML(e){
 }
 
 function renderEntries(filter){
-  const filtered = filter === "all" ? ENTRIES : ENTRIES.filter(e => e.category === filter);
-  grid.innerHTML = filtered.map(entryCardHTML).join("");
+  if(filter !== undefined){
+    currentFilter = filter;
+    visibleCount = PAGE_SIZE; // reset pagination whenever the category changes
+  }
+  const filtered = currentFilter === "all" ? ENTRIES : ENTRIES.filter(e => e.category === currentFilter);
+  const slice = filtered.slice(0, visibleCount);
+  grid.innerHTML = slice.map(entryCardHTML).join("");
+
+  const remaining = filtered.length - slice.length;
+  if(remaining > 0){
+    loadMoreRow.style.display = "flex";
+    loadMoreBtn.disabled = false;
+    loadMoreBtn.textContent = "Load more dispatches ↓";
+    loadMoreCount.textContent = `Showing ${slice.length} of ${filtered.length}`;
+  } else if(filtered.length > PAGE_SIZE){
+    loadMoreRow.style.display = "flex";
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.textContent = "That's everything for now 🐾";
+    loadMoreCount.textContent = `Showing all ${filtered.length}`;
+  } else {
+    loadMoreRow.style.display = "none";
+  }
 }
+
+loadMoreBtn.addEventListener('click', () => {
+  visibleCount += PAGE_SIZE;
+  renderEntries();
+});
 
 function animateCount(target){
   let current = 0;
@@ -1910,19 +3087,41 @@ function animateCount(target){
 const shortsRow = document.getElementById('shortsRow');
 
 const PLATFORM_META = {
-  yt: { label:"▶ Shorts", stage:"var(--coral-light), var(--coral)" },
-  tt: { label:"♪ TikTok", stage:"var(--berry-light), var(--berry)" },
-  ig: { label:"📸 Reel", stage:"#fdf0d5, #ee2a7b" }
+  yt: { label:"▶ Shorts", fallbackGrad:"var(--coral-light), var(--coral)" },
+  tt: { label:"♪ TikTok", fallbackGrad:"var(--berry-light), var(--berry)" },
+  ig: { label:"📸 Reel",  fallbackGrad:"#fdf0d5, #ee2a7b" }
+};
+
+const P = "https://images.unsplash.com/";
+const PHOTOS = {
+  lion:     P+"photo-1546182990-dffeafbe841d?w=400&h=640&fit=crop&auto=format&q=80",
+  octopus:  P+"photo-1564492051408-8969bf1b8ffb?w=400&h=640&fit=crop&auto=format&q=80",
+  dog:      P+"photo-1601758003839-512c0f4159e5?w=400&h=640&fit=crop&auto=format&q=80",
+  cat:      P+"photo-1518791841217-8f162f1e1131?w=400&h=640&fit=crop&auto=format&q=80",
+  shark:    P+"photo-1464925029952-5d9ca1cf4f64?w=400&h=640&fit=crop&auto=format&q=80",
+  polarbear:P+"photo-1709048260198-8d1dcaefc629?w=400&h=640&fit=crop&auto=format&q=80",
+  dinosaur: P+"photo-1553338258-24fe91e8baf3?w=400&h=640&fit=crop&auto=format&q=80",
+  alligator:P+"photo-1674465147112-db1a7dfa5b94?w=400&h=640&fit=crop&auto=format&q=80",
+  giraffe:  P+"photo-1664892378974-b2de0259a78d?w=400&h=640&fit=crop&auto=format&q=80",
+};
+
+/* Map each short card id to a photo key */
+const SHORT_PHOTO = {
+  s1:"octopus", s2:"lion",  s3:"alligator", s4:"shark",
+  t1:"lion",    t2:"shark", t3:"giraffe",   t4:"polarbear",
+  ig1:"giraffe",ig2:"lion", ig3:"dinosaur", ig4:"shark",
+  t5:"dog",     t6:"cat"
 };
 
 function shortCardHTML(s){
-  const meta = PLATFORM_META[s.platform] || PLATFORM_META.yt;
+  const meta  = PLATFORM_META[s.platform] || PLATFORM_META.yt;
+  const photo = PHOTOS[SHORT_PHOTO[s.id]];
   return `
     <a class="short-card" href="${s.url}" target="_blank" rel="noopener">
-      <div class="short-stage" style="background:linear-gradient(160deg, ${meta.stage});">
-        <span class="short-platform ${s.platform}">${meta.label}</span>
-        <span class="short-emoji">${s.emoji}</span>
-        <span class="short-play">▶</span>
+      <div class="short-stage">
+        ${photo ? `<img class="short-photo" src="${photo}" alt="${s.title}" loading="lazy">` : `<div style="position:absolute;inset:0;background:linear-gradient(160deg,${meta.fallbackGrad});"></div>`}
+        <span class="short-platform ${s.platform}" style="position:absolute;top:10px;left:10px;z-index:2;">${meta.label}</span>
+        <span class="short-play" style="position:absolute;bottom:12px;right:12px;z-index:2;">▶</span>
       </div>
       <div class="short-info">
         <h4 class="short-title">${s.title}</h4>
@@ -2040,6 +3239,25 @@ function setInputDisabled(disabled){
   chips.forEach(c => c.disabled = disabled);
 }
 
+/* ---- AI Mode toggle ---- */
+const aiModeToggle  = document.getElementById('aiModeToggle');
+const aiDot         = document.getElementById('aiDot');
+const aiModeText    = document.getElementById('aiModeText');
+const chatThreadEl  = document.getElementById('chatThread');
+const aiOffMsg      = document.getElementById('aiOffMsg');
+const guideFoot     = document.getElementById('guideFoot');
+
+function applyAiMode(on){
+  chatThreadEl.style.display = on ? '' : 'none';
+  aiOffMsg.style.display     = on ? 'none' : 'flex';
+  guideFoot.style.display    = on ? '' : 'none';
+  aiDot.className            = 'dot' + (on ? '' : ' off');
+  aiModeText.textContent     = on ? 'AI Mode — On' : 'AI Mode — Off';
+  if(on) interestInput.focus();
+}
+
+aiModeToggle.addEventListener('change', () => applyAiMode(aiModeToggle.checked));
+
 chips.forEach(chip => {
   chip.addEventListener('click', () => {
     if(chip.disabled) return;
@@ -2054,6 +3272,7 @@ interestInput.addEventListener('keydown', (e) => {
 findBtn.addEventListener('click', sendMessage);
 
 async function sendMessage(){
+  if(!aiModeToggle.checked) return; // AI mode is off
   const text = interestInput.value.trim();
   if(!text) return;
 
@@ -2369,5 +3588,704 @@ function renderQuizEnd(body){
 startQuiz("mixed", "all");
 </script>
 
+<!-- Leaflet map -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+/* ============================================================
+   ANIMAL WORLD MAP
+   ============================================================ */
+
+const CAT_COLORS = {
+  cats:       '#ff6b4a',
+  ocean:      '#00b4a6',
+  mammals:    '#c8631f',
+  birds:      '#4a90d9',
+  weird:      '#b45ac2',
+  prehistoric:'#c9802e',
+  parks:      '#2d7a4a'
+};
+
+const ANIMAL_DATA = [
+  // ---- BIG CATS ----
+  { name:'African Lion', emoji:'🦁', cat:'cats', lat:-2.2, lng:34.8, loc:'Serengeti, Tanzania',
+    desc:'The only truly social cat — prides of up to 30 members hunt cooperatively and share territory across sub-Saharan Africa.' },
+  { name:'Cheetah', emoji:'🐆', cat:'cats', lat:-1.5, lng:35.2, loc:'Masai Mara, Kenya',
+    desc:'Earth\'s fastest land animal (70 mph), yet it lets larger predators steal its kills more than 50% of the time.' },
+  { name:'Amur Leopard', emoji:'🐆', cat:'cats', lat:43.3, lng:134.2, loc:'Russian Far East',
+    desc:'Critically endangered — fewer than 100 remain in the wild in the far eastern corner of Russia and northeast China.' },
+  { name:'Bengal Tiger', emoji:'🐯', cat:'cats', lat:29.5, lng:79.5, loc:'Jim Corbett, India',
+    desc:'260+ tigers call Corbett home — the world\'s highest-density tiger population in India\'s oldest national park.' },
+  { name:'Snow Leopard', emoji:'🐆', cat:'cats', lat:28.2, lng:86.8, loc:'Himalayas',
+    desc:'Phantom of the mountains — so rarely photographed that its total population remained unknown until camera traps in the 2010s.' },
+  { name:'Jaguar', emoji:'🐆', cat:'cats', lat:-3.2, lng:-56.8, loc:'Amazon, Brazil',
+    desc:'The most powerful cat relative to body size — its jaws crush through turtle shells and crocodile skulls with ease.' },
+  { name:'Siberian Tiger', emoji:'🐯', cat:'cats', lat:45.0, lng:134.0, loc:'Primorsky Krai, Russia',
+    desc:'The largest wild cat on Earth. Down to fewer than 600 in the Russian Far East thanks to decades of conservation work.' },
+  { name:'Cougar / Mountain Lion', emoji:'🦁', cat:'cats', lat:36.5, lng:-119.0, loc:'Sierra Nevada, California',
+    desc:'The widest range of any wild land mammal in the Western Hemisphere — from Alaska to the tip of South America.' },
+
+  // ---- OCEAN ----
+  { name:'Blue Whale', emoji:'🐋', cat:'ocean', lat:-44.0, lng:-38.0, loc:'South Atlantic / Southern Ocean',
+    desc:'The largest animal ever known to have lived — its heart is the size of a small car and can be heard from 1,600 km away.' },
+  { name:'Great White Shark', emoji:'🦈', cat:'ocean', lat:-34.3, lng:26.0, loc:'Gansbaai, South Africa',
+    desc:'Gansbaai is the "shark cage diving capital" of the world — one of the highest densities of great whites anywhere.' },
+  { name:'Whale Shark', emoji:'🦈', cat:'ocean', lat:21.5, lng:65.0, loc:'Indian Ocean / Arabian Sea',
+    desc:'The largest fish on Earth feeds only on tiny plankton — it can filter 6,000 litres of water per hour through its gills.' },
+  { name:'Giant Pacific Octopus', emoji:'🐙', cat:'ocean', lat:47.6, lng:-124.5, loc:'Pacific Northwest, USA',
+    desc:'Can change colour in 0.3 seconds, solve puzzles, and unscrew jars. Each arm has its own simple nervous system.' },
+  { name:'Narwhal', emoji:'🦄', cat:'ocean', lat:75.0, lng:-62.0, loc:'Arctic Ocean, Canada/Greenland',
+    desc:'The real unicorn — its "horn" is actually a 3-metre spiral tooth used for sensory perception, not combat.' },
+  { name:'Colossal Squid', emoji:'🦑', cat:'ocean', lat:-70.0, lng:165.0, loc:'Ross Sea, Antarctica',
+    desc:'Largest invertebrate on Earth with eyes the size of a soccer ball. So rarely seen that most knowledge comes from sperm whale stomach contents.' },
+  { name:'Dumbo Octopus', emoji:'🐙', cat:'ocean', lat:-28.0, lng:-14.0, loc:'Deep Atlantic / Pacific',
+    desc:'Lives deeper than any other octopus — over 7,000 m down — using its ear-like fins to hover just above the seafloor.' },
+  { name:'Orca (Killer Whale)', emoji:'🐳', cat:'ocean', lat:48.5, lng:-123.0, loc:'Salish Sea, Pacific NW',
+    desc:'Not truly whales — the largest member of the dolphin family, and the only non-human predator known to teach its young coordinated hunting techniques.' },
+
+  // ---- LARGE MAMMALS ----
+  { name:'African Elephant', emoji:'🐘', cat:'mammals', lat:-3.1, lng:37.1, loc:'Amboseli, Kenya',
+    desc:'The largest land animal on Earth, with the most complex grief rituals of any non-human animal.' },
+  { name:'Indian One-Horned Rhino', emoji:'🦏', cat:'mammals', lat:26.6, lng:93.4, loc:'Kaziranga, Assam',
+    desc:'Two-thirds of the world\'s entire population lives in Kaziranga — 2,613 individuals after a spectacular comeback from near extinction.' },
+  { name:'Mountain Gorilla', emoji:'🦍', cat:'mammals', lat:-1.4, lng:29.5, loc:'Volcanoes NP, Rwanda',
+    desc:'Fewer than 1,100 remain in the wild. Camera trap programmes have been central to tracking and protecting them.' },
+  { name:'Grizzly Bear', emoji:'🐻', cat:'mammals', lat:44.6, lng:-110.5, loc:'Yellowstone, USA',
+    desc:'Wolves were reintroduced to Yellowstone in 1995 and have since reshaped the entire ecosystem — even helping grizzlies by leaving carcasses.' },
+  { name:'Polar Bear', emoji:'🐻‍❄️', cat:'mammals', lat:60.5, lng:-93.8, loc:'Churchill, Manitoba, Canada',
+    desc:'Churchill, Manitoba is the polar bear capital of the world — hundreds gather here each October as Hudson Bay freezes over.' },
+  { name:'Giant Panda', emoji:'🐼', cat:'mammals', lat:30.6, lng:103.5, loc:'Sichuan, China',
+    desc:'Technically a carnivore that eats 99% bamboo. Conservation efforts have moved it off the endangered list — one of the rare genuine success stories.' },
+  { name:'Orangutan', emoji:'🦧', cat:'mammals', lat:1.1, lng:110.2, loc:'Borneo, Malaysia',
+    desc:'Shares 97% of our DNA and uses over 200 distinct calls. Deforestation for palm oil has devastated populations by over 50% in 60 years.' },
+  { name:'Moose', emoji:'🫎', cat:'mammals', lat:52.8, lng:-118.0, loc:'Jasper, Alberta, Canada',
+    desc:'The largest member of the deer family — a bull moose\'s antlers can span 1.8 metres and weigh 18 kg.' },
+  { name:'American Bison', emoji:'🦬', cat:'mammals', lat:44.8, lng:-110.2, loc:'Yellowstone, USA',
+    desc:'Once 60 million strong, reduced to fewer than 1,000 by hunting by 1889. Now ~500,000 exist, mostly in managed herds.' },
+  { name:'Kangaroo', emoji:'🦘', cat:'mammals', lat:-25.0, lng:133.0, loc:'Central Australia',
+    desc:'There are more kangaroos in Australia than people — around 50 million. Their tails work like a fifth leg when hopping slowly.' },
+  { name:'Koala', emoji:'🐨', cat:'mammals', lat:-33.9, lng:151.0, loc:'New South Wales, Australia',
+    desc:'Sleeps up to 22 hours a day to conserve energy — eucalyptus leaves are so low in nutrition they barely fuel active life.' },
+
+  // ---- BIRDS ----
+  { name:'Bald Eagle', emoji:'🦅', cat:'birds', lat:58.2, lng:-136.0, loc:'Alaska, USA',
+    desc:'Once near extinction from DDT poisoning, banned in 1972. Now 350,000+ bald eagles soar across North America.' },
+  { name:'Emperor Penguin', emoji:'🐧', cat:'birds', lat:-77.8, lng:166.7, loc:'Ross Sea, Antarctica',
+    desc:'The only animal to breed during the Antarctic winter — males stand in blizzards for two months without eating, incubating their eggs on their feet.' },
+  { name:'Wandering Albatross', emoji:'🕊️', cat:'birds', lat:-54.5, lng:-37.0, loc:'South Georgia Island',
+    desc:'Largest wingspan of any living bird (up to 3.5m). Spends 5 years continuously at sea after fledging, never touching land.' },
+  { name:'Harpy Eagle', emoji:'🦅', cat:'birds', lat:-3.5, lng:-62.5, loc:'Amazon Basin, Brazil',
+    desc:'South America\'s apex aerial predator — talons as large as a grizzly bear\'s claws, able to snatch monkeys from the canopy.' },
+  { name:'Flamingo', emoji:'🦩', cat:'birds', lat:-2.9, lng:36.1, loc:'Lake Nakuru, Kenya',
+    desc:'Gets its pink colour entirely from the beta-carotene in the algae and shrimp it filters — baby flamingos are born white.' },
+
+  // ---- UNUSUAL CREATURES ----
+  { name:'Komodo Dragon', emoji:'🦎', cat:'weird', lat:-8.5, lng:119.4, loc:'Komodo Island, Indonesia',
+    desc:'The world\'s largest lizard takes down buffalo using venomous saliva and bacteria. Found only on a handful of Indonesian islands.' },
+  { name:'Axolotl', emoji:'🦎', cat:'weird', lat:19.4, lng:-99.2, loc:'Lake Xochimilco, Mexico City',
+    desc:'Can regrow its entire limbs, heart, and parts of its brain. Critically endangered in the wild — fewer than 1,000 survive in one lake in Mexico City.' },
+  { name:'Pangolin', emoji:'🦔', cat:'weird', lat:0.1, lng:20.0, loc:'Central Africa / Southeast Asia',
+    desc:'The world\'s most trafficked mammal — its keratin scales are falsely believed to have medicinal properties in parts of Asia.' },
+  { name:'Platypus', emoji:'🦆', cat:'weird', lat:-37.2, lng:148.0, loc:'Eastern Australia',
+    desc:'A venomous, egg-laying, duck-billed mammal that detects prey using electroreception through its bill. Evolution\'s wildest experiment.' },
+  { name:'Giant Isopod', emoji:'🦀', cat:'weird', lat:-20.0, lng:-40.0, loc:'Deep Atlantic Ocean',
+    desc:'A deep-sea crustacean that can survive over five years without food. Some specimens grow to 50 cm — "polar gigantism" in action.' },
+  { name:'Mantis Shrimp', emoji:'🦐', cat:'weird', lat:-16.5, lng:145.8, loc:'Great Barrier Reef, Australia',
+    desc:'Strikes faster than a bullet, sees 16 types of colour receptors (humans have 3), and its punch creates cavitation bubbles near the temperature of the sun.' },
+
+  // ---- PREHISTORIC FOSSIL SITES ----
+  { name:'T. rex (Hell Creek fossil site)', emoji:'🦖', cat:'prehistoric', lat:47.2, lng:-106.0, loc:'Hell Creek, Montana, USA',
+    desc:'Hell Creek Formation is the world\'s most famous dinosaur fossil site — home to T. rex, Triceratops, and the best evidence of the K-Pg extinction.' },
+  { name:'Woolly Mammoth (Wrangel Island)', emoji:'🦣', cat:'prehistoric', lat:71.0, lng:179.0, loc:'Wrangel Island, Russia',
+    desc:'The last woolly mammoths on Earth survived on this remote Arctic island until roughly 4,000 years ago — when the Egyptian pyramids were already ancient.' },
+  { name:'Megalodon (teeth fossil site)', emoji:'🦷', cat:'prehistoric', lat:34.0, lng:-76.5, loc:'North Carolina / South Carolina, USA',
+    desc:'The Carolina coast is the world\'s best site for megalodon teeth — you can find them on beaches after storms, up to 17 cm long.' },
+  { name:'Dunkleosteus (Cleveland Shale)', emoji:'🐟', cat:'prehistoric', lat:41.5, lng:-81.7, loc:'Cleveland, Ohio, USA',
+    desc:'The Devonian armoured fish with bone-blade jaws instead of teeth. Cleveland\'s museum holds one of the finest specimens discovered.' },
+  { name:'Pterosaur (Daohugou fossil beds)', emoji:'🦅', cat:'prehistoric', lat:42.5, lng:119.0, loc:'Inner Mongolia, China',
+    desc:'The Daohugou beds have produced some of the best-preserved pterosaur specimens ever found, complete with wing membranes intact.' },
+
+  // ---- NATIONAL PARKS ----
+  { name:'Yellowstone National Park', emoji:'🦬', cat:'parks', lat:44.4280, lng:-110.5885, loc:'Wyoming, USA',
+    desc:'The world\'s first national park (1872) and home to half the world\'s geysers. 56 mammal species including grizzlies, wolves, and 5,000+ bison roam freely here.' },
+  { name:'Serengeti National Park', emoji:'🦓', cat:'parks', lat:-2.3330, lng:34.8333, loc:'Tanzania',
+    desc:'Home to the Great Migration — 2 million wildebeest, zebras, and gazelles thunder across 5,700 sq miles. All Big Five are year-round residents.' },
+  { name:'Kruger National Park', emoji:'🐘', cat:'parks', lat:-23.9884, lng:31.5547, loc:'South Africa',
+    desc:'Africa\'s most iconic safari park. 5 million acres, 147 mammal species, and one of the highest Big Five densities on the continent.' },
+  { name:'Galápagos National Park', emoji:'🐢', cat:'parks', lat:-0.9537, lng:-90.9656, loc:'Ecuador',
+    desc:'Where Darwin\'s theory of evolution was born. Giant tortoises, marine iguanas, and blue-footed boobies — many species found nowhere else on Earth.' },
+  { name:'Volcanoes National Park', emoji:'🦍', cat:'parks', lat:-1.4686, lng:29.5176, loc:'Rwanda',
+    desc:'The world\'s most significant mountain gorilla habitat — fewer than 1,100 survive in the wild, and this park protects a large share of them.' },
+  { name:'Amazon National Park', emoji:'🌿', cat:'parks', lat:-4.0200, lng:-56.9800, loc:'Pará, Brazil',
+    desc:'A gateway into the world\'s largest rainforest — home to an estimated 10% of all species on Earth, most not yet named by science.' },
+  { name:'Banff National Park', emoji:'🏔️', cat:'parks', lat:51.4968, lng:-115.9281, loc:'Alberta, Canada',
+    desc:'Canada\'s first national park (1885). 56 mammal species, 300 bird species, and the most wildlife crossing structures of any park in the world.' },
+  { name:'Jasper National Park', emoji:'🌌', cat:'parks', lat:52.8734, lng:-118.0820, loc:'Alberta, Canada',
+    desc:'Canada\'s largest Rocky Mountain park and one of the world\'s biggest Dark Sky Preserves — where caribou, moose, and wolves roam under unobstructed skies.' },
+  { name:'Jim Corbett National Park', emoji:'🐯', cat:'parks', lat:29.5311, lng:79.0479, loc:'Uttarakhand, India',
+    desc:'Asia\'s oldest national park (1936) and the birthplace of Project Tiger. Over 260 Bengal tigers — one of the highest densities anywhere on Earth.' },
+  { name:'Kaziranga National Park', emoji:'🦏', cat:'parks', lat:26.5775, lng:93.1711, loc:'Assam, India',
+    desc:'UNESCO World Heritage Site home to 2,613 one-horned rhinos — two-thirds of the entire world population. Also has world-record wild water buffalo numbers.' },
+  { name:'Ranthambore National Park', emoji:'🏯', cat:'parks', lat:26.0173, lng:76.5026, loc:'Rajasthan, India',
+    desc:'Bengal tigers spotted roaming among 10th-century Mughal fort ruins — one of the most dramatic wildlife landscapes anywhere in the world.' },
+  { name:'Komodo National Park', emoji:'🦎', cat:'parks', lat:-8.5500, lng:119.4833, loc:'Indonesia',
+    desc:'The exclusive home of the Komodo dragon — the world\'s largest living lizard. Below the waterline: some of the most biodiverse coral reefs on the planet.' }
+];
+
+/* ---- Build the map ---- */
+const leafletMap = L.map('animalMap', {
+  center: [15, 15],
+  zoom: 2,
+  minZoom: 1,
+  maxZoom: 10,
+  zoomControl: true
+});
+
+L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+  {
+    attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains:'abcd', maxZoom:19
+  }
+).addTo(leafletMap);
+
+function makeIcon(emoji, color, isPark){
+  const radius = isPark ? '8px' : '50%';
+  const size   = isPark ? '40px' : '36px';
+  const anchor = isPark ? 20 : 18;
+  return L.divIcon({
+    className:'',
+    html:`<div style="
+      width:${size};height:${size};
+      background:${color};
+      border:2.5px solid #2b2a33;
+      border-radius:${radius};
+      display:flex;align-items:center;justify-content:center;
+      font-size:${isPark ? '1.25rem' : '1.05rem'};
+      box-shadow:3px 3px 0 rgba(43,42,51,0.45);
+    ">${emoji}</div>`,
+    iconSize:[parseInt(size),parseInt(size)],
+    iconAnchor:[anchor,anchor],
+    popupAnchor:[0,-24]
+  });
+}
+
+const allMarkers = [];
+
+ANIMAL_DATA.forEach(a => {
+  const color = CAT_COLORS[a.cat] || '#888';
+  const marker = L.marker([a.lat, a.lng], { icon: makeIcon(a.emoji, color, a.cat === 'parks') });
+  marker.bindPopup(`
+    <div class="popup-inner">
+      <span class="popup-emoji">${a.emoji}</span>
+      <h4 class="popup-name">${a.name}</h4>
+      <div class="popup-loc">📍 ${a.loc}</div>
+      <p class="popup-desc">${a.desc}</p>
+    </div>
+  `, { className:'animal-popup', maxWidth:260 });
+  marker._animalCat = a.cat;
+  marker.addTo(leafletMap);
+  allMarkers.push(marker);
+});
+
+/* ---- Update count label ---- */
+const mapCountEl = document.getElementById('mapCount');
+function updateCount(active){
+  mapCountEl.textContent = `${active} animal${active!==1?'s':''} shown`;
+}
+updateCount(allMarkers.length);
+
+/* ---- Category filters ---- */
+const mapControls = document.getElementById('mapControls');
+mapControls.addEventListener('click', e => {
+  const btn = e.target.closest('.map-filter-btn');
+  if(!btn) return;
+  mapControls.querySelectorAll('.map-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.cat;
+  let visible = 0;
+  allMarkers.forEach(m => {
+    if(cat === 'all' || m._animalCat === cat){
+      m.addTo(leafletMap);
+      visible++;
+    } else {
+      m.remove();
+    }
+  });
+  updateCount(visible);
+});
+</script>
+<!-- Wild Dash Platformer -->
+<script>
+(function(){
+'use strict';
+const c = document.getElementById('gameCanvas');
+if(!c) return;
+const ctx = c.getContext('2d');
+const W = 800, H = 450;
+const GRAV = 0.55, PSPEED = 4.8, JUMP = -13.5, LEVEL_W = 3700;
+
+let state = 'menu', score = 0, lives = 3, camX = 0, frame = 0;
+let jumpBuf = 0, coyote = 0;
+let player, platforms, enemies, coins, particles;
+
+/* ---- INPUT ---- */
+const keys = {};
+const pad = {left:false, right:false, jump:false};
+let gameActive = false;
+
+document.addEventListener('keydown', e => {
+  keys[e.code] = true;
+  if(gameActive && ['Space','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code)) e.preventDefault();
+  if(e.code === 'Space' || e.code === 'ArrowUp') { jumpBuf = 10; }
+  if((e.code==='Space'||e.code==='Enter'||e.code==='ArrowUp') && state==='menu') startGame();
+  if((e.code==='Space'||e.code==='Enter') && (state==='over'||state==='win')) startGame();
+});
+document.addEventListener('keyup', e => keys[e.code] = false);
+
+/* ---- LEVEL DATA ---- */
+function makePlatforms(){
+  return [
+    {x:0,   y:390, w:420, h:60},                // Ground 1
+    {x:500, y:390, w:270, h:60},                // Ground 2 (gap at 420-500)
+    {x:830, y:390, w:380, h:60},                // Ground 3
+    {x:1280,y:390, w:350, h:60},                // Ground 4
+    {x:1720,y:390, w:300, h:60},                // Ground 5
+    {x:2100,y:390, w:250, h:60},                // Ground 6
+    {x:2430,y:390, w:350, h:60},                // Ground 7
+    {x:2880,y:390, w:400, h:60},                // Ground 8
+    {x:3360,y:390, w:400, h:60},                // Final ground
+    // Floating
+    {x:160, y:310, w:110, h:16},
+    {x:320, y:260, w:100, h:16},
+    {x:520, y:300, w:90,  h:16},
+    {x:650, y:250, w:110, h:16},
+    {x:870, y:300, w:100, h:16},
+    {x:1000,y:250, w:90,  h:16},
+    {x:1120,y:310, w:100, h:16},
+    {x:1300,y:280, w:110, h:16},
+    {x:1450,y:230, w:90,  h:16},
+    {x:1560,y:290, w:100, h:16},
+    {x:1730,y:260, w:120, h:16},
+    {x:1870,y:210, w:90,  h:16},
+    {x:1990,y:280, w:100, h:16},
+    {x:2110,y:240, w:80,  h:16},
+    {x:2240,y:300, w:90,  h:16},
+    {x:2350,y:250, w:80,  h:16},
+    {x:2450,y:200, w:80,  h:16},
+    {x:2560,y:280, w:100, h:16},
+    {x:2690,y:240, w:90,  h:16},
+    {x:2810,y:300, w:100, h:16},
+    {x:2960,y:250, w:90,  h:16},
+    {x:3080,y:310, w:110, h:16},
+    {x:3200,y:260, w:100, h:16},
+    {x:3350,y:300, w:80,  h:16},
+  ];
+}
+
+function makeEnemies(pfs){
+  return [
+    {x:180, y:362,w:30,h:28,vx:1.2, pid:0,  emoji:'🦀'},
+    {x:530, y:362,w:30,h:28,vx:-1.3,pid:1,  emoji:'🦀'},
+    {x:870, y:362,w:30,h:28,vx:1.4, pid:2,  emoji:'🦀'},
+    {x:1300,y:362,w:30,h:28,vx:-1.2,pid:3,  emoji:'🐍'},
+    {x:1730,y:362,w:30,h:28,vx:1.5, pid:4,  emoji:'🐍'},
+    {x:2100,y:362,w:30,h:28,vx:-1.3,pid:5,  emoji:'🦀'},
+    {x:2440,y:362,w:30,h:28,vx:1.4, pid:6,  emoji:'🐍'},
+    {x:2900,y:362,w:30,h:28,vx:-1.6,pid:7,  emoji:'🦀'},
+    {x:3380,y:362,w:30,h:28,vx:1.5, pid:8,  emoji:'🐍'},
+  ];
+}
+
+function makeCoins(pfs){
+  const spots = [
+    [190,278],[230,278],[330,230],[870,225],[1010,220],
+    [1130,278],[1320,248],[1465,198],[1580,258],[1750,228],
+    [1885,178],[2005,248],[2125,208],[2260,268],[2365,218],
+    [2465,168],[2575,248],[2705,208],[2830,268],[2975,218],
+    [3095,278],[3215,228],[3365,268],
+    // Ground level
+    [100,358],[200,358],[600,358],[1000,358],[1500,358],[2000,358],[2600,358],[3100,358]
+  ];
+  return spots.map(([x,y])=>({x,y,w:20,h:20,done:false,rot:Math.random()*6.28}));
+}
+
+/* ---- INIT ---- */
+function startGame(){
+  state = 'play'; gameActive = true;
+  score = 0; lives = 3; camX = 0; frame = 0; jumpBuf = 0; coyote = 0;
+  particles = [];
+  platforms = makePlatforms();
+  enemies = makeEnemies(platforms);
+  coins = makeCoins(platforms);
+  player = {x:60,y:320,vx:0,vy:0,w:36,h:36,grounded:false,facing:1,inv:0,bob:0};
+}
+
+/* ---- HELPERS ---- */
+function overlap(a,b){ return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y; }
+
+function spawnParticles(x,y,color,n=6){
+  for(let i=0;i<n;i++) particles.push({
+    x,y,vx:(Math.random()-0.5)*5,vy:Math.random()*-5-2,
+    life:30,maxLife:30,color,r:4+Math.random()*4
+  });
+}
+
+/* ---- UPDATE ---- */
+function update(){
+  frame++;
+  const p = player;
+  const goL = keys['ArrowLeft']||keys['KeyA']||pad.left;
+  const goR = keys['ArrowRight']||keys['KeyD']||pad.right;
+
+  // Horizontal
+  if(goL){ p.vx -= 1.4; p.facing=-1; }
+  if(goR){ p.vx += 1.4; p.facing=1;  }
+  if(!goL&&!goR) p.vx *= 0.72;
+  p.vx = Math.max(-PSPEED, Math.min(PSPEED, p.vx));
+
+  p.grounded = false;
+
+  // Move X + collide
+  p.x += p.vx;
+  p.x = Math.max(0, Math.min(LEVEL_W-p.w, p.x));
+  for(const pl of platforms){
+    if(overlap(p,pl)){
+      if(p.vx>0) { p.x=pl.x-p.w; p.vx=0; }
+      else if(p.vx<0) { p.x=pl.x+pl.w; p.vx=0; }
+    }
+  }
+
+  // Gravity + Move Y + collide
+  p.vy += GRAV; p.vy = Math.min(p.vy, 18);
+  p.y += p.vy;
+  for(const pl of platforms){
+    if(overlap(p,pl)){
+      if(p.vy>0){ p.y=pl.y-p.h; p.vy=0; p.grounded=true; coyote=8; }
+      else if(p.vy<0){ p.y=pl.y+pl.h; p.vy=0; }
+    }
+  }
+
+  // Coyote + jump buffer
+  if(!p.grounded && coyote>0) coyote--;
+  if(jumpBuf>0) jumpBuf--;
+  if(jumpBuf>0 && coyote>0){ p.vy=JUMP; jumpBuf=0; coyote=0; }
+
+  // Animation
+  if(p.grounded) p.bob = (p.bob+0.25)%(Math.PI*2);
+  if(p.inv>0) p.inv--;
+
+  // Coins
+  for(const coin of coins){
+    coin.rot += 0.07;
+    if(!coin.done && overlap(p,coin)){
+      coin.done=true; score+=50;
+      spawnParticles(coin.x+10,coin.y+10,'#ffd700');
+    }
+  }
+
+  // Enemies
+  for(const e of enemies){
+    if(e.dead) continue;
+    e.x += e.vx;
+    const pl = platforms[e.pid];
+    if(pl && (e.x<pl.x || e.x+e.w>pl.x+pl.w)) e.vx*=-1;
+    if(p.inv===0 && overlap(p,e)){
+      if(p.vy>0 && p.y+p.h < e.y+e.h*0.55){
+        e.dead=true; score+=100; p.vy=-9;
+        spawnParticles(e.x+15,e.y,'#ff6b4a',8);
+      } else { hitPlayer(); }
+    }
+  }
+
+  // Particles
+  for(const pt of particles){ pt.x+=pt.vx; pt.y+=pt.vy; pt.vy+=0.25; pt.life--; }
+  for(let i=particles.length-1;i>=0;i--){ if(particles[i].life<=0) particles.splice(i,1); }
+
+  // Fall death
+  if(p.y > H+80) hitPlayer();
+
+  // Win
+  if(p.x+p.w > LEVEL_W-60){ score+=lives*200; state='win'; gameActive=false; }
+
+  // Camera
+  const targetX = p.x - W*0.35;
+  camX += (targetX-camX)*0.12;
+  camX = Math.max(0, Math.min(LEVEL_W-W, camX));
+}
+
+function hitPlayer(){
+  lives--;
+  player.inv=100; player.vy=-8;
+  spawnParticles(player.x+18,player.y,'#ff4040',10);
+  if(lives<=0){ state='over'; gameActive=false; }
+}
+
+/* ---- DRAW ---- */
+function drawBg(){
+  const g = ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#6bbde6'); g.addColorStop(0.7,'#c9eaf5'); g.addColorStop(1,'#dff3fe');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  // Clouds
+  ctx.font='38px serif'; ctx.globalAlpha=0.75;
+  const cOff = camX*0.25 % 800;
+  [[60,55],[260,38],[460,62],[660,44],[860,58]].forEach(([x,y])=>{
+    ctx.fillText('☁', ((x-cOff%800)+1600)%900-50, y);
+  });
+  ctx.globalAlpha=1;
+  // Trees
+  ctx.font='36px serif';
+  const tOff = camX*0.55;
+  for(let i=0;i<24;i++){
+    const tx = (i*180 - tOff%(180*24) + 180*24*2)%(180*24);
+    if(tx<W+60) ctx.fillText(i%3===0?'🌴':'🌳', tx-18, 392);
+  }
+  // Sun
+  ctx.font='40px serif';
+  ctx.fillText('☀️', W-60-camX*0.05, 48);
+}
+
+function drawPlatform(pl){
+  const rx = pl.x-camX;
+  if(rx+pl.w<-10||rx>W+10) return;
+  ctx.fillStyle = pl.h>40 ? '#6daa4f' : '#7c4f1e';
+  ctx.fillRect(rx, pl.y, pl.w, pl.h);
+  ctx.fillStyle = pl.h>40 ? '#89d462' : '#a0c74e';
+  ctx.fillRect(rx, pl.y, pl.w, Math.min(10,pl.h));
+  if(pl.h>40){
+    ctx.fillStyle='#5a8a3c';
+    ctx.fillRect(rx, pl.y+10, pl.w, pl.h-10);
+  }
+}
+
+function drawGoal(){
+  const gx = LEVEL_W-100-camX;
+  if(gx<-30||gx>W+30) return;
+  ctx.fillStyle='#8B4513';
+  ctx.fillRect(gx+14,300,5,90);
+  ctx.font='42px serif';
+  ctx.textAlign='left'; ctx.textBaseline='middle';
+  ctx.fillText('🚩',gx,320);
+}
+
+function drawCoins(){
+  ctx.font='18px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+  for(const coin of coins){
+    if(coin.done) continue;
+    const cx=coin.x-camX;
+    if(cx<-30||cx>W+30) continue;
+    ctx.save();
+    ctx.translate(cx+10,coin.y+10);
+    ctx.scale(Math.max(0.1,Math.abs(Math.cos(coin.rot))),1);
+    ctx.fillText('🐾',0,0);
+    ctx.restore();
+  }
+}
+
+function drawEnemies(){
+  ctx.font='26px serif'; ctx.textBaseline='middle';
+  for(const e of enemies){
+    if(e.dead) continue;
+    const ex=e.x-camX;
+    if(ex<-40||ex>W+40) continue;
+    ctx.save();
+    ctx.translate(ex+15,e.y+14);
+    if(e.vx<0) ctx.scale(-1,1);
+    ctx.textAlign='center';
+    ctx.fillText(e.emoji,0,0);
+    ctx.restore();
+  }
+}
+
+function drawPlayer(){
+  const p=player;
+  if(p.inv>0 && frame%5<2) return;
+  const px=p.x-camX;
+  const bob = p.grounded ? Math.sin(p.bob*5)*2 : 0;
+  ctx.save();
+  ctx.translate(px+18, p.y+18+bob);
+  if(p.facing===-1) ctx.scale(-1,1);
+  ctx.font='34px serif';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText('🐆',0,0);
+  ctx.restore();
+}
+
+function drawParticles(){
+  for(const pt of particles){
+    const a = pt.life/pt.maxLife;
+    ctx.globalAlpha=a;
+    ctx.fillStyle=pt.color;
+    ctx.beginPath();
+    ctx.arc(pt.x-camX,pt.y,pt.r*a,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.globalAlpha=1;
+}
+
+function drawHUD(){
+  ctx.fillStyle='rgba(0,0,0,0.45)';
+  ctx.fillRect(0,0,W,46);
+  // Lives
+  let h='';
+  for(let i=0;i<Math.max(0,lives);i++) h+='❤️';
+  ctx.font='17px serif'; ctx.textAlign='left'; ctx.textBaseline='middle';
+  ctx.fillText(h,12,23);
+  // Score
+  ctx.font='bold 16px "Baloo 2",sans-serif';
+  ctx.fillStyle='#ffd700';
+  ctx.fillText('🐾 '+score,120,23);
+  // Progress bar
+  ctx.fillStyle='rgba(255,255,255,0.18)';
+  ctx.fillRect(W-190,13,160,18);
+  const prog = Math.min(1,player.x/(LEVEL_W-100));
+  const pc = ctx.createLinearGradient(W-190,0,W-30,0);
+  pc.addColorStop(0,'#4fad56'); pc.addColorStop(1,'#ffd700');
+  ctx.fillStyle=pc;
+  ctx.fillRect(W-190,13,160*prog,18);
+  ctx.font='10px "JetBrains Mono",monospace';
+  ctx.fillStyle='#fff'; ctx.textAlign='center';
+  ctx.fillText('FINISH →',W-110,22);
+}
+
+function drawMobileBtns(){
+  ctx.globalAlpha=0.55;
+  const btns=[
+    {x:8,   y:H-65, w:52, h:52, label:'←', active:pad.left},
+    {x:66,  y:H-65, w:52, h:52, label:'→', active:pad.right},
+    {x:W-66,y:H-65, w:52, h:52, label:'↑', active:pad.jump, col:'#ffd700'},
+  ];
+  for(const b of btns){
+    ctx.fillStyle=b.active?(b.col||'#ccc'):'rgba(255,255,255,0.85)';
+    ctx.beginPath();
+    ctx.roundRect(b.x,b.y,b.w,b.h,10);
+    ctx.fill();
+    ctx.fillStyle='#2b2a33';
+    ctx.font='bold 22px sans-serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(b.label,b.x+b.w/2,b.y+b.h/2);
+  }
+  ctx.globalAlpha=1;
+}
+
+function overlay(col,a=0.55){
+  ctx.fillStyle=`rgba(${col},${a})`;
+  ctx.fillRect(0,0,W,H);
+}
+
+function drawMenu(){
+  drawBg();
+  overlay('20,20,30',0.6);
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.font='54px serif'; ctx.fillText('🐆',W/2,120);
+  ctx.fillStyle='#ffd700';
+  ctx.font='bold 46px "Baloo 2",sans-serif';
+  ctx.fillText('WILD DASH',W/2,185);
+  ctx.fillStyle='rgba(255,255,255,0.9)';
+  ctx.font='17px "Nunito",sans-serif';
+  ctx.fillText('← → move  ·  Space / ↑ jump  ·  stomp enemies!',W/2,240);
+  ctx.fillText('Collect 🐾  ·  Reach the 🚩  ·  3 lives',W/2,268);
+  ctx.fillStyle='#ffd700';
+  ctx.font='bold 21px "Baloo 2",sans-serif';
+  ctx.fillText('Press SPACE or tap to play!',W/2,324);
+  ctx.font='32px serif';
+  ctx.fillText('🦁 🐯 🐘 🦓 🦏 🦍',W/2,H-36);
+}
+
+function drawOver(){
+  overlay('0,0,0',0.7);
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.font='54px serif'; ctx.fillText('💀',W/2,130);
+  ctx.fillStyle='#ff6b4a';
+  ctx.font='bold 50px "Baloo 2",sans-serif';
+  ctx.fillText('GAME OVER',W/2,210);
+  ctx.fillStyle='#fff';
+  ctx.font='22px "Nunito",sans-serif';
+  ctx.fillText('Score: '+score+' 🐾',W/2,270);
+  ctx.fillStyle='#ffd700';
+  ctx.font='bold 20px "Baloo 2",sans-serif';
+  ctx.fillText('Press SPACE or tap to try again',W/2,330);
+}
+
+function drawWin(){
+  overlay('0,40,0',0.65);
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.font='54px serif'; ctx.fillText('🏆',W/2,120);
+  ctx.fillStyle='#ffd700';
+  ctx.font='bold 50px "Baloo 2",sans-serif';
+  ctx.fillText('YOU WIN!',W/2,195);
+  ctx.fillStyle='#fff';
+  ctx.font='22px "Nunito",sans-serif';
+  ctx.fillText('Final score: '+score+' 🐾',W/2,258);
+  const stars = score>=3000?'⭐⭐⭐':score>=1500?'⭐⭐':'⭐';
+  ctx.font='30px serif'; ctx.fillText(stars,W/2,305);
+  ctx.fillStyle='#afffaf';
+  ctx.font='bold 20px "Baloo 2",sans-serif';
+  ctx.fillText('Press SPACE or tap to play again',W/2,360);
+}
+
+/* ---- TOUCH ---- */
+(function(){
+  const el=c;
+  function ptBtn(x,y){
+    const sy=H*(el.getBoundingClientRect().height/H||1);
+    const ry=y*(H/el.getBoundingClientRect().height);
+    const rx=x*(W/el.getBoundingClientRect().width);
+    if(ry>H-80){
+      if(rx<80) return 'left';
+      if(rx<148) return 'right';
+      if(rx>W-80) return 'jump';
+    }
+    return 'tap';
+  }
+  function onStart(e){
+    e.preventDefault();
+    if(state==='menu'||state==='over'||state==='win'){ startGame(); return; }
+    for(const t of e.changedTouches){
+      const r=el.getBoundingClientRect();
+      const x=t.clientX-r.left, y=t.clientY-r.top;
+      const b=ptBtn(x,y);
+      if(b==='left') pad.left=true;
+      if(b==='right') pad.right=true;
+      if(b==='jump'){ pad.jump=true; jumpBuf=10; }
+    }
+  }
+  function onEnd(e){
+    e.preventDefault();
+    for(const t of e.changedTouches){
+      const r=el.getBoundingClientRect();
+      const x=t.clientX-r.left, y=t.clientY-r.top;
+      const b=ptBtn(x,y);
+      if(b==='left') pad.left=false;
+      if(b==='right') pad.right=false;
+      if(b==='jump') pad.jump=false;
+    }
+  }
+  el.addEventListener('touchstart',onStart,{passive:false});
+  el.addEventListener('touchend',onEnd,{passive:false});
+  el.addEventListener('touchcancel',onEnd,{passive:false});
+})();
+
+/* ---- LOOP ---- */
+function loop(){
+  requestAnimationFrame(loop);
+  ctx.clearRect(0,0,W,H);
+  if(state==='menu'){ drawMenu(); return; }
+  if(state==='play'){ update(); }
+  drawBg();
+  platforms.forEach(drawPlatform);
+  drawGoal();
+  drawCoins();
+  drawEnemies();
+  drawPlayer();
+  drawParticles();
+  drawHUD();
+  drawMobileBtns();
+  if(state==='over') drawOver();
+  if(state==='win')  drawWin();
+}
+
+loop();
+})();
+</script>
 </body>
 </html>
